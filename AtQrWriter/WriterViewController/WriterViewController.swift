@@ -19,8 +19,8 @@ class WriterViewController: UIViewController {
     
     
     @IBAction func generateQrImage(){
-        let text = tfQrText.text
-        let data = text?.data(using: String.Encoding.ascii)
+    
+        let data = tfQrText.text?.data(using: String.Encoding.ascii)
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
         qrFilter.setValue(data, forKey: "inputMessage")
         guard let qrImage = qrFilter.outputImage else { return }
